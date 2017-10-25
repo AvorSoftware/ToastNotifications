@@ -1,0 +1,11 @@
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\bin\Debug\TestApp.exe.config
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\bin\Debug\TestApp.exe
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\bin\Debug\TestApp.pdb
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\bin\Debug\ToastNotifications.dll
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\bin\Debug\ToastNotifications.pdb
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\obj\Debug\TestApp.csprojResolveAssemblyReference.cache
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\obj\Debug\TestApp.Properties.Resources.resources
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\obj\Debug\TestApp.csproj.GenerateResource.Cache
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\obj\Debug\TestApp.csproj.CoreCompileInputs.cache
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\obj\Debug\TestApp.exe
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\obj\Debug\TestApp.pdb

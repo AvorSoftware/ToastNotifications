@@ -1,0 +1,10 @@
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\ToastNotifications\bin\Release\ToastNotifications.dll
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\ToastNotifications\bin\Release\ToastNotifications.pdb
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\ToastNotifications\obj\Release\Interop.WMPLib.dll
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.csproj.ResolveComReference.cache
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.NotificationForm.resources
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.Properties.Resources.resources
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.csproj.GenerateResource.Cache
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.csproj.CoreCompileInputs.cache
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.dll
+C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.pdb
