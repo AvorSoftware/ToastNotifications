@@ -108,21 +108,7 @@ namespace ToastNotifications
 
             notification.notifications.Add(this);
         }
-
-        private void NotificationForm_MouseUp(object sender, MouseEventArgs e)
-        {
-            if((Cursor.Position.X - CursorPosition.x) > 5)
-            {
-                this.CloseButton_Click(sender, e);
-            }
-        }
-
-        private void NotificationForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            CursorPosition.x = Cursor.Position.X;
-            CursorPosition.y = Cursor.Position.Y;
-        }
-
+        
         public NotificationForm(Notifications notification, string notificationTitle, string notificationText, Image notificationIcon, NotificationType notificationType, string notificationString = null, string okButtonString = null, string cancelButtonString = null) : this(notification, notificationTitle, notificationText, notificationIcon)
         {
             actionString = notificationString;
@@ -226,6 +212,20 @@ namespace ToastNotifications
             OnNotificationClick.Invoke(this, actionString);
         }
 
+        private void NotificationForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            if ((Cursor.Position.X - CursorPosition.x) > 5)
+            {
+                this.CloseButton_Click(sender, e);
+            }
+        }
+
+        private void NotificationForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            CursorPosition.x = Cursor.Position.X;
+            CursorPosition.y = Cursor.Position.Y;
+        }
+
         private void DenyButton_Click(object sender, EventArgs e)
         {
             this.timerClosing.Start();
@@ -255,6 +255,8 @@ namespace ToastNotifications
                 closeButton.Visible = false;
             }
         }
+
+
         #endregion
 
         #region Helper
