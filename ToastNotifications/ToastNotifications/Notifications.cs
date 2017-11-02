@@ -1,34 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
-using ToastNotifications;
 
 namespace ToastNotifications
 {
-    public struct NotificationInfos
-    {
-        public string title;
-        public string text;
-        public Image image;
-
-        public string action;
-    }
-
     public class Notifications
     {
-
+        #region Public Events
         public event Action<object, string> OnNotificationClick;
         public event Action<object, string> OnNotificationClose;
+        #endregion
 
+        #region Public Fields
+        public int timeToLive;
+        #endregion
+
+        #region Internal Fields
         internal List<NotificationForm> notifications = new List<NotificationForm>();
         internal Color backColor;
         internal Color titleColor;
         internal Color textColor;
-        internal int timeToLive;
+        #endregion
 
+        #region Constructors
         public Notifications()
         {
             backColor = Color.FromArgb(28, 28, 28);
@@ -36,7 +30,6 @@ namespace ToastNotifications
              textColor = Color.FromKnownColor(KnownColor.DimGray);
             timeToLive = 7000;
         }
-
         public Notifications(Color? backColor, Color? titleColor, Color? textColor, int? timeToLive)
         {
             if (backColor == null)
@@ -53,20 +46,16 @@ namespace ToastNotifications
             this.textColor = (Color)textColor;
             this.timeToLive = (int)timeToLive * 1000;        
         }
-        
-        public void Add(string notificationTitle, string notificationText)
+        #endregion
+
+        #region Methods
+        internal void Show(string notificationTitle, string notificationText)
         {
             NotificationForm notiform = new NotificationForm(this, notificationTitle, notificationText, null);
             notiform.Show();
         }
-
-        private void Notiform_OnNotificationClose(object sender, string actionString)
-        {
-            NotificationForm notification = (NotificationForm)sender;
-            OnNotificationClose?.Invoke(this, actionString);
-        }
-
-        public void Add(string notificationTitle, string notificationText, Image notificationImage = null, NotificationType notificationType = NotificationType.Default, string actionString = null, string okButtonString = null, string cancelButtonString = null)
+        
+        public void Show(string notificationTitle, string notificationText, Image notificationImage = null, NotificationType notificationType = NotificationType.Default, string actionString = null, string okButtonString = null, string cancelButtonString = null)
         {
             NotificationForm notiform = new NotificationForm(this, notificationTitle, notificationText, notificationImage, notificationType, actionString, okButtonString, cancelButtonString);
 
@@ -89,11 +78,20 @@ namespace ToastNotifications
                     break;
             }
         }
+        #endregion
 
+        #region Event Handlers
         private void Notiform_OnNotificationClick(object sender, string actionString)
         {
             NotificationForm notification = (NotificationForm)sender;
             OnNotificationClick?.Invoke(this, actionString);
         }
+        
+        private void Notiform_OnNotificationClose(object sender, string actionString)
+        {
+            NotificationForm notification = (NotificationForm)sender;
+            OnNotificationClose?.Invoke(this, actionString);
+        }
+        #endregion
     }
 }

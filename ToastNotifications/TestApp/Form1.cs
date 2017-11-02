@@ -40,19 +40,19 @@ namespace TestApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            notifications.Add("Test1", "Nuovo messaggio ricevutoNuovo messaggio ricevutoNuovo messaggio ricevutoNuovo messaggio ricevuto", this.Icon.ToBitmap(), NotificationType.Default, "Test1");
+            notifications.Show("Test Notification", "This is a notification test for GitHub Friends\nSays \"Hello Friends!\"", this.Icon.ToBitmap());
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            notifications.Add("Test2", "Nuovo messaggio ricevutoNuovo messaggio ricevutoNuovo messaggio ricevutoNuovo messaggio ricevuto", this.Icon.ToBitmap(), NotificationType.OkCancel, "Test2");
+            notifications.Show("Test2", "Nuovo messaggio ricevutoNuovo messaggio ricevutoNuovo messaggio ricevutoNuovo messaggio ricevuto", this.Icon.ToBitmap(), NotificationType.OkCancel, "Test2");
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            notifications.Add("Test3", "Nuovo messaggio ricevutoNuovo messaggio ricevutoNuovo messaggio ricevutoNuovo messaggio ricevuto", this.Icon.ToBitmap(), NotificationType.OkDeny, "Test3");
+            notifications.Show("Test3", "Nuovo messaggio ricevutoNuovo messaggio ricevutoNuovo messaggio ricevutoNuovo messaggio ricevuto", this.Icon.ToBitmap(), NotificationType.OkDeny, "Test3");
 
         }
     }

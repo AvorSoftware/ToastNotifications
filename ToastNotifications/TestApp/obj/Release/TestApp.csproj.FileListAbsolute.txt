@@ -9,3 +9,14 @@ C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\ob
 C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\obj\Release\TestApp.csproj.CoreCompileInputs.cache
 C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\obj\Release\TestApp.exe
 C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\TestApp\obj\Release\TestApp.pdb
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\TestApp\bin\Release\TestApp.exe.config
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\TestApp\bin\Release\TestApp.exe
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\TestApp\bin\Release\TestApp.pdb
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\TestApp\bin\Release\ToastNotifications.dll
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\TestApp\bin\Release\ToastNotifications.pdb
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\TestApp\obj\Release\TestApp.csprojResolveAssemblyReference.cache
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\TestApp\obj\Release\TestApp.Form1.resources
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\TestApp\obj\Release\TestApp.Properties.Resources.resources
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\TestApp\obj\Release\TestApp.csproj.GenerateResource.Cache
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\TestApp\obj\Release\TestApp.exe
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\TestApp\obj\Release\TestApp.pdb

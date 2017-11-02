@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ToastNotifications
 {
     internal partial class NotificationForm : Form
     {
-
+        #region Internal Properties and Attributes
         internal string notificationTitleText
         {
             get
@@ -52,15 +46,27 @@ namespace ToastNotifications
 
         internal string actionString;
         internal NotificationType? notificationType = null;
+        #endregion
 
-        Notifications notification;
-        Rectangle workingArea;
-        Control _parent;
+        #region Private Fields
+        private Notifications notification;
+        private Rectangle workingArea;
+        private Control _parent;
 
+        private struct CursorPosition
+        {
+            public static double x;
+            public static double y;
+        }
+        #endregion
+
+        #region Public Events
         public event Action<object, string> OnNotificationClick;
         public event Action<object, string> OnNotificationClose;
+        #endregion
 
-        public NotificationForm(Notifications notification, string notificationTitle, string notificationText, Image notificationIcon)
+        #region Constructors
+        internal NotificationForm(Notifications notification, string notificationTitle, string notificationText, Image notificationIcon)
         {
             InitializeComponent();
             this.notification = notification;
@@ -77,6 +83,8 @@ namespace ToastNotifications
             AddMouseEventsToChildren(this);
             this.MouseEnter += Form_MouseEnter;
             this.MouseLeave += Form_MouseLeave;
+            this.MouseDown += NotificationForm_MouseDown;
+            this.MouseUp += NotificationForm_MouseUp;
             this.MouseClick += Form_Click;
             this.closeButton.Click += CloseButton_Click;
             this.denyButton.Click += DenyButton_Click;
@@ -101,13 +109,21 @@ namespace ToastNotifications
             notification.notifications.Add(this);
         }
 
-        private void DenyButton_Click(object sender, EventArgs e)
+        private void NotificationForm_MouseUp(object sender, MouseEventArgs e)
         {
-            this.timerClosing.Start();
-            OnNotificationClose.Invoke(this, actionString);
+            if((Cursor.Position.X - CursorPosition.x) > 5)
+            {
+                this.CloseButton_Click(sender, e);
+            }
         }
 
-        public NotificationForm(Notifications notification, string notificationTitle, string notificationText, Image notificationIcon, NotificationType notificationType, string notificationString, string okButtonString = null, string cancelButtonString = null) : this(notification,notificationTitle,notificationText,notificationIcon)
+        private void NotificationForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            CursorPosition.x = Cursor.Position.X;
+            CursorPosition.y = Cursor.Position.Y;
+        }
+
+        public NotificationForm(Notifications notification, string notificationTitle, string notificationText, Image notificationIcon, NotificationType notificationType, string notificationString = null, string okButtonString = null, string cancelButtonString = null) : this(notification, notificationTitle, notificationText, notificationIcon)
         {
             actionString = notificationString;
             this.notificationType = notificationType;
@@ -116,7 +132,7 @@ namespace ToastNotifications
             {
                 case NotificationType.Default:
                     this.Height = 100;
-                    if(notification.notifications.Count() > 1)
+                    if (notification.notifications.Count() > 1)
                         this.Location = new Point(this.Location.X,
                                 (notification.notifications[notification.notifications.Count() - 2].Location.Y - 10) - this.Size.Height);
                     break;
@@ -152,34 +168,24 @@ namespace ToastNotifications
 
             AddMouseEventsToChildren(this);
         }
+        #endregion
 
+        #region Timers
         private void TimerShow_Tick(object sender, EventArgs e)
         {
             this.CloseButton_Click(this, e);
         }
-
-        private void Form_Click(object sender, MouseEventArgs e)
-        {
-            if (_parent == null)
-            {
-                _parent = this.Parent;
-                AddMouseEventsToParents(this);
-            }
-
-            this.CloseButton_Click(this, e);
-            OnNotificationClick.Invoke(this, actionString);
-        }
-
+        
         private void TimerOpening_Tick(object sender, EventArgs e)
         {
             this.Location = new Point(this.Location.X - 10,
                                       this.Location.Y);
 
-            if(this.Opacity <= 100)
+            if (this.Opacity <= 100)
                 this.Opacity += 0.1;
 
             if (Location.X <= (workingArea.Right - (Size.Width + 10)))
-            {              
+            {
                 timerOpening.Stop();
             }
         }
@@ -205,37 +211,32 @@ namespace ToastNotifications
                 this.Close();
             }
         }
+        #endregion 
+
+        #region Event Handlers
+        private void Form_Click(object sender, MouseEventArgs e)
+        {
+            if (_parent == null)
+            {
+                _parent = this.Parent;
+                AddMouseEventsToParents(this);
+            }
+
+            this.CloseButton_Click(this, e);
+            OnNotificationClick.Invoke(this, actionString);
+        }
+
+        private void DenyButton_Click(object sender, EventArgs e)
+        {
+            this.timerClosing.Start();
+            OnNotificationClose.Invoke(this, actionString);
+        }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
             this.timerClosing.Start();
         }
-
-        private void AddMouseEventsToChildren(Control parent)
-        {
-            foreach (Control child in parent.Controls)
-            {
-                child.MouseLeave += Form_MouseLeave;
-                child.MouseEnter += Form_MouseEnter;
-                if (this.Height == 100 && this.notificationType != null)
-                    child.MouseClick += Form_Click;
-                AddMouseEventsToChildren(child);
-            }
-        }
-
-        private void AddMouseEventsToParents(Control child)
-        {
-            if (child.Parent != null)
-            {
-                child.Parent.MouseEnter += Form_MouseLeave;
-                child.Parent.MouseLeave += Form_MouseLeave;
-                if(this.Height == 100
-                     && this.notificationType != null)
-                    child.MouseClick += Form_Click;
-                AddMouseEventsToParents(child.Parent);
-            }
-        }
-
+        
         void Form_MouseEnter(object sender, EventArgs e)
         {
             if (_parent == null)
@@ -254,5 +255,33 @@ namespace ToastNotifications
                 closeButton.Visible = false;
             }
         }
+        #endregion
+
+        #region Helper
+        private void AddMouseEventsToChildren(Control parent)
+        {
+            foreach (Control child in parent.Controls)
+            {
+                child.MouseLeave += Form_MouseLeave;
+                child.MouseEnter += Form_MouseEnter;
+                if (this.Height == 100 && this.notificationType != null)
+                    child.MouseClick += Form_Click;
+                AddMouseEventsToChildren(child);
+            }
+        }
+
+        private void AddMouseEventsToParents(Control child)
+        {
+            if (child.Parent != null)
+            {
+                child.Parent.MouseEnter += Form_MouseLeave;
+                child.Parent.MouseLeave += Form_MouseLeave;
+                if (this.Height == 100
+                     && this.notificationType != null)
+                    child.MouseClick += Form_Click;
+                AddMouseEventsToParents(child.Parent);
+            }
+        }
+        #endregion
     }
 }

@@ -8,3 +8,15 @@ C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\ToastNotif
 C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.csproj.CoreCompileInputs.cache
 C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.dll
 C:\Users\domen\Documents\GitHub\ToastNotifications\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.pdb
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\ToastNotifications\bin\Release\ToastNotifications.dll
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\ToastNotifications\bin\Release\ToastNotifications.pdb
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\ToastNotifications\bin\Release\System.Net.Http.dll
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\ToastNotifications\bin\Release\System.Net.Http.xml
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\ToastNotifications\obj\Release\Interop.WMPLib.dll
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.csproj.ResolveComReference.cache
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.NotificationForm.resources
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.Properties.Resources.resources
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.csproj.GenerateResource.Cache
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.dll
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.pdb
+H:\Users\dzarcone\Documents\Visual Studio 2015\Projects\ToastNotifications\ToastNotifications\obj\Release\ToastNotifications.csprojResolveAssemblyReference.cache
